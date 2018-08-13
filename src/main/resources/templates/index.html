@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+
+</head>
+<body>
+    <table id="demo" lay-filter="test"></table>
+    <script th:src="@{/layui/layui.all.js}"></script>
+    <script>
+        layui.use('table',function () {
+            var table = layui.table;
+            table.render({
+                elem: '#demo',
+                height:315,
+                url: 'getAll1',
+                page: true,
+                cols: [
+                    [
+                        {field:'userId',title:'ID',width:80,sort:true,fixed:'left'},   //和数据库中字段一样
+                        {field:'userName',title:'用户名',width:80},
+                        {field:'password',title:'密码',width:120},
+                        {field:'phone',title:'手机',width:120}
+                    ]
+                ]
+            });
+        });
+
+    </script>
+</body>
+</html>
